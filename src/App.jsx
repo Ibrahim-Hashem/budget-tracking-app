@@ -1,9 +1,15 @@
+import Container from './components/Container';
+import Navbar from './components/Navbar';
+import BudgetWidget from './components/BudgetWidget';
+
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    //nav bar
+    <Container>
+      <Navbar />
+      <BudgetWidget />
+    </Container>
+  );
 }
 
-export default App
+export default App;
