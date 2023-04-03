@@ -1,14 +1,12 @@
-import Container from './components/Container';
-import Navbar from './components/Navbar';
+import Layout from './components/Layout';
 import BudgetWidget from './components/BudgetWidget';
 
 function App() {
   return (
     //nav bar
-    <Container>
-      <Navbar />
+    <Layout>
       <BudgetWidget />
-    </Container>
+    </Layout>
   );
 }
 
