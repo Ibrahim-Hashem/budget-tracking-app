@@ -1,4 +1,4 @@
-import { Button, ButtonWhite } from '../Button';
+import { Button, ButtonBlue } from '../Button';
 import addBudgetFunc from '../../utils/addBudgetFunc';
 import addExpenseFunc from '../../utils/addExpenseFunc';
 
@@ -8,7 +8,7 @@ function Navbar() {
       <h1 className="text-xl m-3">Budgeting Tracker</h1>
       <div className="flex w-1/2 justify-end">
         <Button btnText="Add Budget" onClick={addBudgetFunc} />
-        <ButtonWhite btnText="Add Expense" onClick={addExpenseFunc} />
+        <ButtonBlue btnText="Add Expense" onClick={addExpenseFunc} />
       </div>
     </div>
   );
