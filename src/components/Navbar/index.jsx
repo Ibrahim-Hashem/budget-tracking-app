@@ -1,11 +1,14 @@
 import { Button, ButtonWhite } from '../Button';
+import addBudgetFunc from '../../utils/addBudgetFunc';
+import addExpenseFunc from '../../utils/addExpenseFunc';
+
 function Navbar() {
   return (
     <div className="flex flex-row justify-around my-4">
       <h1 className="text-xl m-3">Budgeting Tracker</h1>
       <div className="flex w-1/2 justify-end">
-        <Button btnText="Add Budget" />
-        <ButtonWhite btnText="Add Expense" />
+        <Button btnText="Add Budget" onClick={addBudgetFunc} />
+        <ButtonWhite btnText="Add Expense" onClick={addExpenseFunc} />
       </div>
     </div>
   );

@@ -5,7 +5,12 @@ function App() {
   return (
     //nav bar
     <Layout>
-      <BudgetWidget />
+      <div className="grid grid-cols-1 gap-2 items-start md:grid-cols-2 lg:grid-cols-3">
+        <BudgetWidget />
+        <BudgetWidget />
+        <BudgetWidget />
+        <BudgetWidget />
+      </div>
     </Layout>
   );
 }

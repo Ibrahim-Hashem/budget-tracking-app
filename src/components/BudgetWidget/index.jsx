@@ -1,8 +1,13 @@
+import Widget from './Widget';
+import TextBar from './TextBar';
+import ProgressBar from './ProgressBar.jsx';
+
 function BudgetWidget() {
   return (
-    <div>
-      <h1>Budget Widget</h1>
-    </div>
+    <Widget>
+      <TextBar name={'placeholder'} spent={100} budget={1000} />
+      <ProgressBar spent={100} budget={1000} />
+    </Widget>
   );
 }
 export default BudgetWidget;
