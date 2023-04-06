@@ -1,16 +1,17 @@
 import Layout from './components/Layout';
 import BudgetWidget from './components/BudgetWidget';
+import { BudgetsProvider } from './context/BudgetsContext';
+import WidgetWrapper from './components/WidgetWrapper';
 
 function App() {
   return (
     //nav bar
     <Layout>
-      <div className="grid grid-cols-1 gap-2 items-start md:grid-cols-2 lg:grid-cols-3">
-        <BudgetWidget />
-        <BudgetWidget />
-        <BudgetWidget />
-        <BudgetWidget />
-      </div>
+      <BudgetsProvider>
+        <WidgetWrapper>
+          <BudgetWidget />
+        </WidgetWrapper>
+      </BudgetsProvider>
     </Layout>
   );
 }
