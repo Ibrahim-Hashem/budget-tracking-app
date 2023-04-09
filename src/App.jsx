@@ -6,13 +6,13 @@ import WidgetWrapper from './components/WidgetWrapper';
 function App() {
   return (
     //nav bar
-    <Layout>
-      <BudgetsProvider>
+    <BudgetsProvider>
+      <Layout>
         <WidgetWrapper>
           <BudgetWidget />
         </WidgetWrapper>
-      </BudgetsProvider>
-    </Layout>
+      </Layout>
+    </BudgetsProvider>
   );
 }
 
