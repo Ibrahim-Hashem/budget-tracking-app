@@ -23,14 +23,18 @@ export default function AddBudgetModal({ isOpen, onClose }) {
       <div className="flex flex-col">
         <label htmlFor="budgetName">Budget Name</label>
         <input
+          className="border-2 border-gray-300 rounded-md"
           type="text"
           id="budgetName"
           value={budgetName}
           required
           onChange={(e) => setBudgetName(e.target.value)}
         />
-        <label htmlFor="budget">Budget</label>
+        <label className="mt-4" htmlFor="budget">
+          Budget Amount
+        </label>
         <input
+          className="border-2 border-gray-300 rounded-md"
           type="number"
           id="budget"
           value={budget}
@@ -38,7 +42,7 @@ export default function AddBudgetModal({ isOpen, onClose }) {
           onChange={(e) => setBudget(e.target.value)}
         />
         <button
-          className="text-white bg-blue-500 rounded-md mx-2 px-4 hover:shadow-xl"
+          className="text-white bg-blue-500 rounded-md mx-2 px-4 hover:shadow-xl mt-4"
           type="submit"
           onClick={handleAddBudget}>
           Add Budget

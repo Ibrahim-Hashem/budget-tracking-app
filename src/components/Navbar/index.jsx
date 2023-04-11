@@ -10,7 +10,7 @@ function Navbar() {
 
   const { budgets } = useContext(BudgetsContext);
   useEffect(() => {
-    budgets ? console.log({ budgets }) : console.log('no budgets');
+    budgets.length > 0 ? console.log({ budgets }) : console.log('no budgets');
   }, [budgets]);
 
   return (
@@ -22,12 +22,14 @@ function Navbar() {
             btnText="Add Budget"
             onClick={() => {
               setAddBudgetModal(true);
+              setAddExpenseModal(false);
             }}
           />
           <ButtonBlue
             btnText="Add Expense"
             onClick={() => {
               setAddExpenseModal(true);
+              setAddBudgetModal(false);
             }}
           />
         </div>
@@ -45,7 +47,7 @@ function Navbar() {
       {addExpenseModal && (
         <AddExpenseModal
           onClose={() => {
-            setAddExpenseModal(true);
+            setAddExpenseModal(false);
           }}
           isOpen={addExpenseModal}
         />

@@ -1,16 +1,13 @@
 import Layout from './components/Layout';
-import BudgetWidget from './components/BudgetWidget';
 import { BudgetsProvider } from './context/BudgetsContext';
-import WidgetWrapper from './components/WidgetWrapper';
+import MainContainer from './components/MainContainer';
 
 function App() {
   return (
     //nav bar
     <BudgetsProvider>
       <Layout>
-        <WidgetWrapper>
-          <BudgetWidget />
-        </WidgetWrapper>
+        <MainContainer />
       </Layout>
     </BudgetsProvider>
   );
