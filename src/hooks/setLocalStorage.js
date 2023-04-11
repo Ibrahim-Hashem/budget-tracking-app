@@ -1,9 +1,9 @@
 import getLocalStorage from './getLocalStorage';
 
-const setLocalStorage = (key, value) => {
-  const data = getLocalStorage(key);
-  data.push(value);
-  localStorage.setItem(key, JSON.stringify(data));
+const setLocalStorage = (key, data) => {
+  const previousData = getLocalStorage(key);
+  const newData = previousData !== null ? previousData + data : data;
+  localStorage.setItem(key, JSON.stringify(newData));
 };
 
 export default setLocalStorage;

@@ -1,12 +1,6 @@
 const getLocalStorage = (key) => {
-  if (key) {
-    const value = localStorage.getItem(key);
-    if (value) {
-      return JSON.parse(value);
-    } else {
-      return [];
-    }
-  }
+  const data = JSON.parse(localStorage.getItem(key));
+  return data ? data : null;
 };
 
 export default getLocalStorage;

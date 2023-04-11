@@ -66,19 +66,32 @@ export const BudgetsProvider = ({ children }) => {
   function addBudget({ name, max }) {
     setBudgets((prevBudgets) => {
       console.log({ prevBudgets });
-      if (prevBudgets.find((budget) => budget.name === name)) {
-        return prevBudgets;
-      }
-      return [
-        ...prevBudgets,
-        {
-          id: uuidv4(),
-          name,
-          max
+      if (prevBudgets) {
+        if (prevBudgets.find((budget) => budget.name === name)) {
+          const budgets = [
+            ...prevBudgets,
+            {
+              id: uuidv4(),
+              name,
+              max
+            }
+          ];
+          setLocalStorage('budgets', budgets);
+
+          return budgets;
         }
-      ];
+      } else {
+        const budgets = [
+          {
+            id: uuidv4(),
+            name,
+            max
+          }
+        ];
+        setLocalStorage('budgets', budgets);
+        return budgets;
+      }
     });
-    setLocalStorage('budgets', budgets);
   }
 
   function deleteBudget({ budgetId }) {
