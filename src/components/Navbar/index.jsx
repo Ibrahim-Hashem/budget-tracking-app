@@ -1,5 +1,5 @@
 import { Button, ButtonBlue } from '../Button';
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import AddBudgetModal from '../AddBudgetModal';
 import AddExpenseModal from '../AddExpenseModal';
 import { BudgetsContext } from '../../context/BudgetsContext';
@@ -9,9 +9,6 @@ function Navbar() {
   const [addExpenseModal, setAddExpenseModal] = useState(false);
 
   const { budgets } = useContext(BudgetsContext);
-  useEffect(() => {
-    budgets.length > 0 ? console.log({ budgets }) : console.log('no budgets');
-  }, [budgets]);
 
   return (
     <>
@@ -28,8 +25,12 @@ function Navbar() {
           <ButtonBlue
             btnText="Add Expense"
             onClick={() => {
-              setAddExpenseModal(true);
-              setAddBudgetModal(false);
+              if (budgets.length <= 0) {
+                alert('Please add a budget first');
+              } else {
+                setAddExpenseModal(true);
+                setAddBudgetModal(false);
+              }
             }}
           />
         </div>

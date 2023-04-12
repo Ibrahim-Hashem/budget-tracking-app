@@ -51,10 +51,11 @@ export const BudgetsProvider = ({ children }) => {
     });
   }
 
-  function deleteBudget({ id }) {
+  function deleteBudget(id) {
     setBudgets((prevBudgets) => prevBudgets.filter((budget) => budget.id !== id));
+    setExpenses((prevExpenses) => prevExpenses.filter((expense) => expense.budgetId !== id));
   }
-  function deleteExpense({ id }) {
+  function deleteExpense(id) {
     setExpenses((prevExpenses) => prevExpenses.filter((expense) => expense.id !== id));
   }
 

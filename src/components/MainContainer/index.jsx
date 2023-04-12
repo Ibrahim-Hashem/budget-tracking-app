@@ -11,7 +11,7 @@ export default function MainContainer() {
       <WidgetWrapper>
         {budgets.map((budget) => {
           const expenses = getBudgetExpenses(budget.id);
-          const sum = expenses.reduce((acc, expense) => acc + expense.amount, 0);
+          const sum = expenses.reduce((acc, expense) => +acc + +expense.amount, 0);
           return <BudgetWidget key={budget.id} budget={budget} spent={sum} />;
         })}
       </WidgetWrapper>
