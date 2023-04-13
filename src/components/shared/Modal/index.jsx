@@ -18,8 +18,10 @@ export default function Modal({ children, isOpen, onClose }) {
           } fixed z-10 inset-0  h-fit w-auto `}>
           {children}
           <div className="flex w-full justify-center mt-4">
-            <button className="text-red-700" onClick={onClose}>
-              X
+            <button
+              className="text-red-700 border rounded-lg px-4 py-2 border-red-100 hover:shadow-2xl shadow-red-500 hover:bg-red-100"
+              onClick={onClose}>
+              close
             </button>
           </div>
         </div>

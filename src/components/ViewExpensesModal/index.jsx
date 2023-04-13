@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from '../shared/Modal';
 import { BudgetsContext } from '../../context/BudgetsContext';
+import formatCurrency from '../../utils/formatCurrency';
 import { useContext } from 'react';
 
 export default function ViewExpensesModal({ isOpen, onClose, budgetId }) {
@@ -9,17 +10,31 @@ export default function ViewExpensesModal({ isOpen, onClose, budgetId }) {
     <Modal isOpen={isOpen} onClose={onClose}>
       <h1 className="text-2xl font-bold">Expenses</h1>
       <div className="flex flex-col justify-center items-center">
-        {getBudgetExpenses(budgetId).map((expense) => {
-          return (
-            <div key={expense.id} className="flex justify-between w-full border p-4">
-              <div>{expense.description}</div>
-              <div>{expense.amount}</div>
-              <button className="text-red-600" onClick={() => deleteExpense(expense.id)}>
-                X
-              </button>
-            </div>
-          );
-        })}
+        <table className="table-auto w-full text-left">
+          <thead className="bg-gray-100">
+            <tr>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            {getBudgetExpenses(budgetId).map((expense) => {
+              return (
+                <tr key={expense.id} className="border-b">
+                  <td>{expense.description}</td>
+                  <td>{formatCurrency(expense.amount)}</td>
+                  <td className="text-center">
+                    {' '}
+                    <button className="text-red-600" onClick={() => deleteExpense(expense.id)}>
+                      X
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </Modal>
   );
